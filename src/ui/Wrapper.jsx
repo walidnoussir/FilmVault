@@ -1,5 +1,5 @@
-function Wrapper({ children }) {
-  return <div className="flex items-center gap-2">{children}</div>;
+function Wrapper({ children, style }) {
+  return <div className={`flex items-center gap-2 ${style}`}>{children}</div>;
 }
 
 export default Wrapper;
