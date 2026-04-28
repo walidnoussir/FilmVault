@@ -2,12 +2,12 @@ import { Plus, X } from "lucide-react";
 import FormRow from "../ui/FormRow";
 import Button from "../ui/Button";
 
-function NewFilm() {
+function NewFilm({ setIsOpen }) {
   return (
     <form className="bg-slate-900 w-[90%] h-[80%] rounded-2xl md:w-[50%] overflow-y-scroll overscroll-none space-y-2 pb-4">
       <div className="flex items-center justify-between bg-slate-800 text-white p-2 rounded-tr-2xl rounded-tl-2xl">
         <p className="font-bold text-2xl">Add New Film</p>
-        <X />
+        <X className="cursor-pointer" onClick={() => setIsOpen(false)} />
       </div>
       <FormRow label="Title" style="px-4 py-1">
         <input

@@ -5,7 +5,7 @@ function FilmImage({ type, src }) {
 
   return (
     <div className={styles[type]}>
-      <img className="w-full h-full" src={src} alt="image" />
+      <img className="w-full h-full object-cover" src={src} alt="image" />
     </div>
   );
 }
