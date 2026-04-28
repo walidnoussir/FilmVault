@@ -1,4 +1,4 @@
-import { X } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import FormRow from "../ui/FormRow";
 import Button from "../ui/Button";
 
@@ -95,7 +95,12 @@ function NewFilm() {
           <span>5</span>
         </div>
       </FormRow>
-      <Button type="secondary">Add New Film</Button>
+      <div className="p-4">
+        <Button type="secondary">
+          <Plus />
+          <p>Add New Film</p>
+        </Button>
+      </div>
     </form>
   );
 }
