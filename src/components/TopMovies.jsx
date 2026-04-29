@@ -6,7 +6,7 @@ function TopMovies() {
   const topMovies = movies.filter((movie) => movie.rating === 5);
   return (
     <>
-      <h1 className="text-white flex items-center gap-2 py-2 px-8">
+      <h1 className="text-white flex items-center gap-2 py-2 px-4">
         <Trophy className="text-amber-300" />
         <p className="text-3xl font-bold">Top Rated Movies</p>
       </h1>

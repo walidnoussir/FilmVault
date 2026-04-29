@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import NewFilm from "./components/NewFilm";
 import TopMovies from "./components/TopMovies";
 import Modal from "./ui/Modal";
+import MovieLists from "./components/MovieLists";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ function App() {
       <Navbar setIsOpen={setIsOpen} />
       <Hero />
       <TopMovies />
+      <MovieLists />
       {isOpen && (
         <Modal>
           <NewFilm isOpen={isOpen} setIsOpen={setIsOpen} />
