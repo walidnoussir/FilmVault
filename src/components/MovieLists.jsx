@@ -3,6 +3,9 @@ import FilterMovies from "./FilterMovies";
 import MovieCard from "./MovieCard";
 
 function MovieLists() {
+  const data = JSON.parse(localStorage.getItem("movies"));
+  console.log(data);
+
   return (
     <div className="px-2 space-y-2">
       <h1 className="text-2xl text-white font-bold">All Movies</h1>
