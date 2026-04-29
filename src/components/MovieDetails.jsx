@@ -1,5 +1,6 @@
-import { X } from "lucide-react";
+import { Play, X } from "lucide-react";
 import Wrapper from "../ui/Wrapper";
+import Button from "../ui/Button";
 
 function MovieDetails({ movie, setIsOpenDetails }) {
   return (
@@ -37,6 +38,10 @@ function MovieDetails({ movie, setIsOpenDetails }) {
             <span className="text-white">: {movie.actors.join(", ")}</span>
           </Wrapper>
         </div>
+        <Button type="secondary">
+          <Play />
+          <p>Watch Trailer</p>
+        </Button>
       </div>
     </div>
   );
