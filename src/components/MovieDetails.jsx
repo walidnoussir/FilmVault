@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 
 function MovieDetails({ movie, setIsOpenDetails }) {
   return (
-    <div className="bg-slate-800 w-full lg:w-[60%] overflow-y-scroll m-1.5 rounded-2xl relative space-y-2">
+    <div className="bg-slate-800 w-full lg:w-[60%] overflow-y-scroll [scrollbar-width:none] [&::-webkit-scrollbar]:hidden m-1.5 rounded-2xl relative space-y-2">
       <button
         className="cursor-pointer absolute right-1 bg-slate-900/80 rounded-full p-1"
         onClick={() => setIsOpenDetails(false)}

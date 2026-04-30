@@ -14,12 +14,28 @@ function NewFilm({ setIsOpen }) {
   const [trailer, setTrailer] = useState("");
   const [rating, setRating] = useState(0);
 
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(
+    () => JSON.parse(localStorage.getItem("movies")) || [],
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (
+      !title ||
+      !description ||
+      !year ||
+      !genre ||
+      !director ||
+      !actors ||
+      !image ||
+      !trailer ||
+      !rating
+    )
+      return;
+
     const newMovie = {
+      id: new Date(),
       title,
       description,
       year,
@@ -35,6 +51,7 @@ function NewFilm({ setIsOpen }) {
 
     setMovies(updatedMovies);
     localStorage.setItem("movies", JSON.stringify(updatedMovies));
+    // localStorage.clear;
 
     setTilte("");
     setDescritpion("");
@@ -45,13 +62,11 @@ function NewFilm({ setIsOpen }) {
     setImage("");
     setTrailer("");
     setRating(0);
-
-    console.log(movies);
   };
 
   return (
     <form
-      className="bg-slate-900 w-[90%] h-[80%] rounded-2xl md:w-[50%] overflow-y-scroll overscroll-none space-y-2 pb-4"
+      className="bg-slate-900 w-[90%] h-[80%] rounded-2xl md:w-[50%] overflow-y-scroll overscroll-none space-y-2 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       onSubmit={handleSubmit}
     >
       <div className="flex items-center justify-between bg-slate-800 text-white p-2 rounded-tr-2xl rounded-tl-2xl">
@@ -60,6 +75,7 @@ function NewFilm({ setIsOpen }) {
       </div>
       <FormRow label="Title" style="px-4 py-1">
         <input
+          required
           className="input placeholder:text-slate-300 placeholder:text-sm"
           type="text"
           value={title}
@@ -70,6 +86,7 @@ function NewFilm({ setIsOpen }) {
 
       <FormRow label="Description" style="px-4 py-1">
         <textarea
+          required
           className="input placeholder:text-slate-300 placeholder:text-sm"
           type="text"
           value={description}
@@ -81,6 +98,7 @@ function NewFilm({ setIsOpen }) {
       <div className="flex justify-between">
         <FormRow label="Release Year" style="px-4 py-1">
           <input
+            required
             className="input w-full"
             value={year}
             onChange={(e) => setYear(e.target.value)}
@@ -89,6 +107,7 @@ function NewFilm({ setIsOpen }) {
         </FormRow>
         <FormRow label="Genre" style="px-4 py-1">
           <input
+            required
             className="input placeholder:text-slate-300 placeholder:text-sm w-full"
             type="text"
             value={genre}
@@ -100,6 +119,7 @@ function NewFilm({ setIsOpen }) {
 
       <FormRow label="Director" style="px-4 py-1">
         <input
+          required
           className="input placeholder:text-slate-300 placeholder:text-sm"
           type="text"
           value={director}
@@ -110,6 +130,7 @@ function NewFilm({ setIsOpen }) {
 
       <FormRow label="Actors (comma separated)" style="px-4 py-1">
         <input
+          required
           className="input placeholder:text-slate-300 placeholder:text-sm"
           type="text"
           value={actors}
@@ -119,6 +140,7 @@ function NewFilm({ setIsOpen }) {
       </FormRow>
       <FormRow label="Image URL" style="px-4 py-1">
         <input
+          required
           className="input placeholder:text-slate-300 placeholder:text-sm"
           type="text"
           value={image}
@@ -128,6 +150,7 @@ function NewFilm({ setIsOpen }) {
       </FormRow>
       <FormRow label="Trailer URL" style="px-4 py-1">
         <input
+          required
           className="input placeholder:text-slate-300 placeholder:text-sm"
           type="text"
           value={trailer}
@@ -137,6 +160,7 @@ function NewFilm({ setIsOpen }) {
       </FormRow>
       <FormRow label="Raiting: 5⭐" style="px-4 py-1">
         <input
+          required
           className="w-full h-3 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-blue-600"
           type="range"
           min="1"
