@@ -1,9 +1,12 @@
 import { Trophy } from "lucide-react";
-import { movies } from "../data/movies";
 import MovieCard from "./MovieCard";
 
 function TopMovies() {
-  const topMovies = movies.filter((movie) => movie.rating === 5);
+  const data = JSON.parse(localStorage.getItem("movies")) || [];
+
+  const topMovies = data.sort((a, b) => Number(b.rating) - Number(a.rating));
+  console.log(topMovies);
+
   return (
     <>
       <h1 className="text-white flex items-center gap-2 py-2 px-4">
