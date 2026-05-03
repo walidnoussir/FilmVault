@@ -11,7 +11,9 @@ function MovieLists() {
 
   const filtredMovies = movies.filter((movie) => {
     const byGenre = genre === "all" || movie.genre === genre;
-    const byRate = Number(movie.rating) == rate;
+    const byRate = rate
+      ? Number(movie.rating) == rate
+      : Number(movie.rating) >= 0;
     return byGenre && byRate;
   });
 
